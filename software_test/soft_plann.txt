@@ -1,0 +1,46 @@
+button1  select
+button2  up
+plann:
+
+button2 will select the discharge current from presets or custorm
+then confirm with button1 
+confirm again with button1
+
+if custom is selected then 3 digit mA load will be bonfigured 
+each decimal in a row
+
+
+
+
+
+while dirchargeing,on the LCD:
+ the current (measured on Rload)/programed
+ the cell voltage
+ the cell curent storage mAh 
+ will be displayed 
+
+
+
+
+
+
+
+cut off voltage is set from software at 3.2V
+
+data pints saved every 5s saved to txt file :
+voltage (and current in a header  )
+
+
+
+POWER:
+1 cell:
+3-3.2  -   4.2V 
+boost works
+
+
+
+
+2 cells:
+6-6.4  -  8.4V
+boost works
+
