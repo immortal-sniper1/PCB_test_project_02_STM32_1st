@@ -4024,7 +4024,7 @@
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheet file" "power_USB_BATT.kicad_sch" (id 1) (at 146.685 168.2246 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
+      (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
   )
 
