@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -43,14 +43,14 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 EXECUTABLES += \
 udemy_course_example.elf \
 
+MAP_FILES += \
+udemy_course_example.map \
+
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
 udemy_course_example.list \
-
-OBJCOPY_BIN += \
-udemy_course_example.bin \
 
 
 # All Target
@@ -60,7 +60,7 @@ all: main-build
 main-build: udemy_course_example.elf secondary-outputs
 
 # Tool invocations
-udemy_course_example.elf: $(OBJS) $(USER_OBJS) D:\github-stuff\PCB_test_project_02_STM32_1st\software_test\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+udemy_course_example.elf udemy_course_example.map: $(OBJS) $(USER_OBJS) D:\github-stuff\PCB_test_project_02_STM32_1st\software_test\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "udemy_course_example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\github-stuff\PCB_test_project_02_STM32_1st\software_test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="udemy_course_example.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
@@ -75,17 +75,12 @@ udemy_course_example.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_
 	@echo 'Finished building: $@'
 	@echo ' '
 
-udemy_course_example.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "udemy_course_example.bin"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) default.size.stdout udemy_course_example.bin udemy_course_example.elf udemy_course_example.list
+	-$(RM) default.size.stdout udemy_course_example.elf udemy_course_example.list udemy_course_example.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
